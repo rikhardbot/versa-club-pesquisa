@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Versa Club · Termos e políticas</title>
+<meta name="description" content="Termos de uso, privacidade, cookies, pagamentos, cancelamento, suporte, comunidade, torneios e conteúdo da Versa Club.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230D0A17'/%3E%3Cpolygon points='6,12 30,12 50,68 50,92' fill='%238B3DFF'/%3E%3Cpolygon points='94,12 70,12 50,68 50,92' fill='%23F4F2FA'/%3E%3Cpolygon points='70,12 94,12 90.15,19 67.5,19' fill='%23C4A1FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#000000; --line:#2C2C2C; --ink:#FFFFFF; --ink2:#D9D9D9; --muted:#A0A0A0;
+  --accent:#8B3DFF; --lilas:#C4A1FF; --warn:#FFB38A;
+  --grad:linear-gradient(136deg,#6F22E6 0%,#8F45FF 100%);
+  --glass:linear-gradient(165deg,rgba(14,10,22,.86),rgba(7,6,12,.64));
+  --font:"Zalando Sans SemiExpanded","Inter",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+html,body{margin:0}
+body{background:#000;background-image:radial-gradient(circle at 0% 0%,rgba(139,61,255,.16),rgba(0,0,0,0) 38%),radial-gradient(circle at 100% 100%,rgba(139,61,255,.08),rgba(0,0,0,0) 38%);background-attachment:fixed;color:var(--ink);font-family:var(--font);font-size:15.5px;line-height:1.65;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+a{color:var(--lilas)}
+a:hover{color:#fff}
+a:focus-visible,button:focus-visible{outline:2px solid var(--lilas);outline-offset:2px;border-radius:6px}
+.top{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:16px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);margin-bottom:24px}
+.top .in{max-width:760px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.logo svg{width:32px;height:32px;flex:none}
+.logo b{font-weight:800;font-size:15px;letter-spacing:.14em}
+.back{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.26);background:linear-gradient(140deg,rgba(22,22,22,.82),rgba(13,13,13,.82));color:#fff;text-decoration:none;font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.card{border:1px solid rgba(255,255,255,.14);border-radius:20px;background:var(--glass);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);padding:24px clamp(18px,4vw,30px)}
+.tag{display:inline-flex;align-items:center;padding:6px 14px;border-radius:999px;border:1px solid rgba(139,61,255,.6);background:rgba(139,61,255,.14);color:var(--lilas);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+h1{font-weight:400;font-size:clamp(28px,6vw,38px);line-height:1.14;margin:16px 0 10px;text-wrap:balance}
+h2{font-weight:400;font-size:22px;line-height:1.25;margin:0 0 4px;text-wrap:balance}
+h3{font-weight:700;font-size:15px;margin:20px 0 4px}
+p,li{color:var(--ink2);max-width:68ch}
+p{margin:8px 0}
+ul,ol{margin:8px 0;padding-left:20px}
+li{margin:4px 0}
+.upd{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin:0 0 6px}
+.draft{border:1px solid rgba(255,179,138,.45);background:rgba(255,179,138,.08);border-radius:14px;padding:12px 16px;color:var(--warn);font-size:14px;margin-top:14px}
+.draft b{color:#fff}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.toc a{display:inline-flex;padding:8px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:linear-gradient(140deg,rgba(22,22,22,.82),rgba(13,13,13,.82));color:#fff;text-decoration:none;font-size:13.5px}
+.toc a:hover{border-color:rgba(169,112,255,.75)}
+.ph{color:var(--warn);font-weight:600}
+.site-foot{max-width:760px;margin:40px auto 0;border-top:1px solid var(--line);padding-top:28px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px 28px}
+.cols h4{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cols a{display:block;color:var(--ink2);text-decoration:none;font-size:14px;padding:4px 0}
+.cols a:hover{color:#fff}
+.cols p{font-size:14px;margin:0 0 12px}
+.dc{display:inline-flex!important;align-items:center;gap:10px;padding:12px 18px!important;border-radius:12px;background:var(--grad);border:1px solid rgba(169,112,255,.62);color:#fff!important;font-weight:800;font-size:13px!important;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 0 24px rgba(139,61,255,.3)}
+.dc svg{width:18px;height:18px;flex:none}
+.dc[aria-disabled="true"]{background:linear-gradient(140deg,rgba(22,22,22,.82),rgba(13,13,13,.82));border-color:rgba(255,255,255,.26);box-shadow:none;cursor:default;color:var(--muted)!important}
+.handle{display:block;margin-top:10px;font-size:13px;color:var(--muted)}
+.disc{font-size:12.5px;color:var(--muted);margin:28px 0 6px;max-width:none}
+.copy{font-size:12.5px;color:var(--muted);margin:0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="top"><div class="in"><a class="logo" href="./"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg><b>VERSA CLUB</b></a><a class="back" href="./">&#8592; Pesquisa</a></div></nav>
+
+<main class="wrap">
+  <header class="card">
+    <span class="tag">Termos e políticas</span>
+    <h1>Regras claras para quem joga com a Versa Club</h1>
+    <p>Esta página reúne os termos e as políticas da Versa Club, grupo do qual faz parte a Versality Gaming. Eles valem para a pesquisa de campo, para a futura ferramenta de gestão de times e para os torneios organizados pelo grupo.</p>
+    <div class="draft"><b>Versão em rascunho.</b> Estes textos ainda serão revisados por um advogado antes de valerem como documento definitivo. Os trechos entre colchetes, como <span class="ph">[CNPJ]</span>, serão preenchidos na versão final.</div>
+    <nav class="toc" aria-label="Índice">
+      <a href="#termos-legais">Termos legais</a>
+      <a href="#termos-de-uso">Termos de Uso</a>
+      <a href="#privacidade">Privacidade</a>
+      <a href="#cookies">Cookies</a>
+      <a href="#pagamentos">Pagamentos</a>
+      <a href="#cancelamento">Cancelamento</a>
+      <a href="#suporte">Suporte e atendimento</a>
+      <a href="#comunidade">Comunidade</a>
+      <a href="#torneios">Regulamento de torneios</a>
+      <a href="#conteudo">Conteúdo</a>
+    </nav>
+  </header>
+
+  <section class="card" id="termos-legais">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Termos legais</h2>
+    <p>A Versa Club é responsável por este site e pelos serviços descritos nesta página.</p>
+    <ul>
+      <li>Razão social: <span class="ph">[RAZÃO SOCIAL]</span></li>
+      <li>CNPJ: <span class="ph">[CNPJ]</span></li>
+      <li>Endereço: <span class="ph">[ENDEREÇO, CIDADE/UF]</span></li>
+      <li>Contato: pelo botão do Discord no rodapé</li>
+    </ul>
+    <p>A Versa Club é independente e não é afiliada, patrocinada ou endossada pela Riot Games. League of Legends e as marcas relacionadas pertencem à Riot Games, Inc.</p>
+    <p>Estes documentos seguem a legislação brasileira, em especial o Código de Defesa do Consumidor (Lei 8.078/1990), o Marco Civil da Internet (Lei 12.965/2014) e a Lei Geral de Proteção de Dados (Lei 13.709/2018).</p>
+  </section>
+
+  <section class="card" id="termos-de-uso">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Termos de Uso</h2>
+    <p>Ao usar este site ou responder à pesquisa, você concorda com estes termos.</p>
+    <h3>Uso permitido</h3>
+    <ul>
+      <li>Responder à pesquisa com informações verdadeiras, no máximo uma vez por pessoa.</li>
+      <li>Não enviar respostas automatizadas, spam ou conteúdo ofensivo.</li>
+      <li>Não tentar invadir, sobrecarregar ou alterar o funcionamento do site.</li>
+    </ul>
+    <h3>Contas e ferramenta futura</h3>
+    <p>Quando a ferramenta de gestão de times for lançada, o uso dela poderá exigir uma conta. Você é responsável pelos dados da sua conta e pelo que for feito com ela.</p>
+    <h3>Responsabilidade</h3>
+    <p>O site é oferecido como está. Fazemos o possível para mantê-lo no ar e correto, mas não garantimos funcionamento sem interrupções. A Versa Club não se responsabiliza por falhas de serviços de terceiros, como a hospedagem e o armazenamento das respostas.</p>
+    <h3>Mudanças nestes termos</h3>
+    <p>Podemos atualizar estes termos. A data no topo de cada seção mostra a versão mais recente.</p>
+    <h3>Lei e foro</h3>
+    <p>Vale a lei brasileira. Fica eleito o foro da comarca de <span class="ph">[CIDADE/UF]</span>, sem prejuízo do direito do consumidor de usar o foro do próprio domicílio.</p>
+  </section>
+
+  <section class="card" id="privacidade">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Política de Privacidade</h2>
+    <p>Explicamos aqui quais dados coletamos, por que e como você pode controlar esses dados, conforme a LGPD.</p>
+    <h3>O que coletamos na pesquisa</h3>
+    <ul>
+      <li>As suas respostas às perguntas, como papel no time, elo, rotina, dores e gastos.</li>
+      <li>Data e hora do envio.</li>
+      <li>Somente se você preencher: nome do time e contato (Discord ou e-mail).</li>
+    </ul>
+    <p>Não pedimos nome completo, CPF, endereço ou dados de pagamento na pesquisa.</p>
+    <h3>Para que usamos</h3>
+    <ul>
+      <li>Entender como times amadores se organizam e decidir o que a ferramenta deve ter.</li>
+      <li>Convidar para o teste antecipado (beta) ou para uma conversa, se você aceitou e deixou contato.</li>
+    </ul>
+    <h3>Base legal</h3>
+    <p>As respostas são tratadas com base no legítimo interesse de pesquisa da Versa Club (art. 7º, IX, da LGPD). O contato é tratado com base no seu consentimento (art. 7º, I), dado ao preenchê-lo.</p>
+    <h3>Com quem compartilhamos</h3>
+    <p>Não vendemos dados. As respostas ficam guardadas em uma planilha do Google (Google Workspace) e o site é hospedado no GitHub Pages. Esses serviços podem registrar dados técnicos de acesso, como endereço IP, conforme as políticas deles.</p>
+    <h3>Por quanto tempo</h3>
+    <p>Guardamos as respostas por até 24 meses, ou até o fim do projeto, o que vier primeiro. Depois apagamos ou deixamos os dados anônimos.</p>
+    <h3>Seus direitos</h3>
+    <p>Você pode pedir a qualquer momento acesso, correção ou exclusão dos seus dados, ou retirar o consentimento do contato (art. 18 da LGPD). Fale com a gente pelo Discord do rodapé. Responsável pelo tratamento de dados: <span class="ph">[NOME DO ENCARREGADO]</span>.</p>
+  </section>
+
+  <section class="card" id="cookies">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Política de Cookies</h2>
+    <p>Este site não usa cookies próprios, nem ferramentas de anúncio ou de rastreamento.</p>
+    <ul>
+      <li>As fontes do site são carregadas do Google Fonts, que pode receber dados técnicos do seu navegador, como o endereço IP.</li>
+      <li>A hospedagem (GitHub Pages) pode registrar dados técnicos de acesso por segurança.</li>
+    </ul>
+    <p>Se no futuro usarmos cookies de medição ou de login, avisaremos antes e pediremos o seu consentimento quando a lei exigir.</p>
+  </section>
+
+  <section class="card" id="pagamentos">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Política de Pagamentos</h2>
+    <p>A pesquisa é gratuita e nada é cobrado neste site hoje. Esta política vale para serviços pagos futuros, como planos da ferramenta e inscrições em torneios.</p>
+    <ul>
+      <li>Preços, o que está incluso e a forma de cobrança são mostrados antes da compra.</li>
+      <li>Os pagamentos são feitos por Pix ou cartão, processados por intermediadores de pagamento. A Versa Club não guarda dados de cartão.</li>
+      <li>Planos mensais são cobrados automaticamente a cada período até o cancelamento.</li>
+      <li>O comprovante é enviado após a confirmação do pagamento. Nota fiscal: <span class="ph">[REGRA DE EMISSÃO]</span>.</li>
+      <li>Se um pagamento falhar, o acesso aos recursos pagos pode ser suspenso até a regularização.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="cancelamento">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Política de Cancelamento</h2>
+    <h3>Direito de arrependimento</h3>
+    <p>Em compras feitas pela internet, você pode desistir em até 7 dias da contratação e receber o valor de volta integralmente, conforme o art. 49 do Código de Defesa do Consumidor.</p>
+    <h3>Planos da ferramenta</h3>
+    <p>Você pode cancelar a qualquer momento. O acesso continua até o fim do período já pago, e não há cobrança de multa.</p>
+    <h3>Inscrições em torneios</h3>
+    <ul>
+      <li>Desistência até <span class="ph">[X] dias</span> antes do início: reembolso integral.</li>
+      <li>Depois desse prazo, ou em caso de W.O., a inscrição não é devolvida, salvo quando a lei garantir o contrário.</li>
+      <li>Se a Versa Club cancelar o torneio, todas as inscrições são devolvidas integralmente.</li>
+    </ul>
+    <p>Reembolsos são feitos pelo mesmo meio de pagamento, em até <span class="ph">[X] dias úteis</span>.</p>
+  </section>
+
+  <section class="card" id="suporte">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Política de Suporte e Atendimento</h2>
+    <ul>
+      <li>Canal: Discord, pelo botão no rodapé.</li>
+      <li>Horário: <span class="ph">[DIAS E HORÁRIOS]</span>.</li>
+      <li>Primeira resposta em até 2 dias úteis.</li>
+      <li>Durante torneios, a organização atende pelo canal do torneio, com prioridade para problemas de partida.</li>
+    </ul>
+    <p>Para agilizar, conte o que aconteceu, quando e, se der, mande um print. Não pedimos senha da sua conta Riot ou de qualquer outra conta, em nenhuma situação.</p>
+  </section>
+
+  <section class="card" id="comunidade">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Política de Comunidade</h2>
+    <p>Os espaços da Versa Club (Discord, torneios, transmissões e a ferramenta) são para jogar, aprender e competir com respeito.</p>
+    <h3>Não é permitido</h3>
+    <ul>
+      <li>Ofensas, assédio, ameaças ou discriminação por qualquer motivo.</li>
+      <li>Trapaça, uso de programas proibidos, compartilhamento de conta ou entrar com conta de outra pessoa.</li>
+      <li>Spam, golpes, divulgação sem autorização e conteúdo sexual ou violento.</li>
+      <li>Expor dados pessoais de outras pessoas.</li>
+    </ul>
+    <h3>Consequências</h3>
+    <p>Conforme a gravidade: aviso, silenciamento, desclassificação, suspensão ou banimento. Casos graves podem ser levados às autoridades.</p>
+    <h3>Denúncias</h3>
+    <p>Denuncie pelo Discord do rodapé. Toda denúncia é tratada de forma reservada.</p>
+  </section>
+
+  <section class="card" id="torneios">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Regulamento Geral de Torneios</h2>
+    <p>Regras que valem para todos os torneios da Versa Club. Cada torneio pode ter um regulamento próprio com detalhes adicionais, que prevalece em caso de conflito.</p>
+    <h3>Inscrição e elegibilidade</h3>
+    <ul>
+      <li>Cada jogador usa a própria conta e segue os Termos de Serviço da Riot Games.</li>
+      <li>O time informa titulares e reservas até o fechamento das inscrições.</li>
+      <li>Restrições de elo, idade ou região, quando houver, aparecem no regulamento do torneio.</li>
+    </ul>
+    <h3>Partidas</h3>
+    <ul>
+      <li>Tolerância de 15 minutos de atraso. Depois disso, o time ausente perde por W.O.</li>
+      <li>Pausas apenas por problema técnico, avisadas no chat da partida.</li>
+      <li>Resultados são enviados com print da tela final.</li>
+    </ul>
+    <h3>Conduta e disputas</h3>
+    <p>Vale a Política de Comunidade. Contestações devem ser enviadas à organização em até 1 hora após a partida, com provas. A decisão da organização é final.</p>
+    <h3>Premiação</h3>
+    <p>Prêmios são pagos ao capitão ou ao responsável indicado pelo time, em até <span class="ph">[X] dias úteis</span>, após a conferência dos resultados e dos dados de recebimento.</p>
+    <h3>Transmissão e imagem</h3>
+    <p>As partidas podem ser transmitidas e gravadas. Ao participar, os jogadores autorizam o uso do nome de jogador, do nome do time e das partidas na divulgação dos torneios da Versa Club.</p>
+  </section>
+
+  <section class="card" id="conteudo">
+    <p class="upd">Atualizado em 8 de novembro de 2026</p>
+    <h2>Política de Conteúdo</h2>
+    <h3>O que é seu</h3>
+    <p>Nomes de time, logos e textos que você enviar continuam sendo seus. Ao enviar, você garante que tem direito de usar esse conteúdo e autoriza a Versa Club a exibi-lo dentro dos serviços e na divulgação dos torneios.</p>
+    <h3>O que é nosso</h3>
+    <p>A marca Versa Club, o design do site e os textos desta página pertencem à Versa Club. Não é permitido copiá-los sem autorização.</p>
+    <h3>Marcas de terceiros</h3>
+    <p>League of Legends e os elementos do jogo pertencem à Riot Games. Citamos o jogo apenas para identificar o assunto.</p>
+    <h3>Conteúdo proibido e remoção</h3>
+    <p>Removemos conteúdo ilegal, ofensivo, que viole direitos de terceiros ou a Política de Comunidade. Se algum conteúdo seu viola direitos de outra pessoa, ou se você é o titular de um conteúdo publicado aqui sem permissão, fale com a gente pelo Discord do rodapé.</p>
+  </section>
+</main>
+
+<!-- RODAPE -->
+<footer class="site-foot">
+  <div class="cols">
+    <div>
+      <h4>Legal</h4>
+      <a href="legal.html#termos-legais">Termos legais</a>
+      <a href="legal.html#termos-de-uso">Termos de Uso</a>
+      <a href="legal.html#privacidade">Política de Privacidade</a>
+      <a href="legal.html#cookies">Política de Cookies</a>
+      <a href="legal.html#conteudo">Política de Conteúdo</a>
+    </div>
+    <div>
+      <h4>Políticas</h4>
+      <a href="legal.html#pagamentos">Política de Pagamentos</a>
+      <a href="legal.html#cancelamento">Política de Cancelamento</a>
+      <a href="legal.html#suporte">Suporte e Atendimento</a>
+      <a href="legal.html#comunidade">Política de Comunidade</a>
+      <a href="legal.html#torneios">Regulamento geral de torneios</a>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <p>Dúvidas sobre a pesquisa ou a Versa Club? Fala direto comigo.</p>
+      <a class="dc" id="dc-btn" href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg><span id="dc-txt">Discord em breve</span></a>
+      <span class="handle" id="dc-handle"></span>
+    </div>
+  </div>
+  <p class="disc">A Versa Club é independente e não é afiliada à Riot Games. League of Legends é marca registrada da Riot Games, Inc.</p>
+  <p class="copy">© 2026 Versa Club</p>
+</footer>
+<script>
+(function(){
+  var DISCORD_ID = '1242136007248449669';
+  var DISCORD_USER = '';
+  var b = document.getElementById('dc-btn');
+  if(DISCORD_ID){
+    b.href = 'https://discord.com/users/' + DISCORD_ID;
+    b.target = '_blank'; b.rel = 'noopener';
+    b.removeAttribute('aria-disabled');
+    document.getElementById('dc-txt').textContent = 'Falar comigo no Discord';
+  } else {
+    b.addEventListener('click', function(e){ e.preventDefault(); });
+  }
+  if(DISCORD_USER) document.getElementById('dc-handle').textContent = '@' + DISCORD_USER;
+})();
+</script>
+<!-- /RODAPE -->
+</body>
+</html>
