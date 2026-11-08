@@ -11,14 +11,16 @@
 <meta name="theme-color" content="#0D0A17">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230D0A17'/%3E%3Cpolygon points='6,12 30,12 50,68 50,92' fill='%238B3DFF'/%3E%3Cpolygon points='94,12 70,12 50,68 50,92' fill='%23F4F2FA'/%3E%3Cpolygon points='70,12 94,12 90.15,19 67.5,19' fill='%23C4A1FF'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap">
 <style>
 :root{
-  --bg:#0D0A17; --surface:#17122A; --line:#2A2342; --ink:#F4F2FA; --muted:#A39DBB;
-  --accent:#8B3DFF; --accent-ink:#ffffff; --accent-soft:#2A1F4A; --lilas:#C4A1FF; --warn:#FFB38A;
-  --display:"Montserrat","Segoe UI",system-ui,sans-serif;
-  --body:"Inter",system-ui,-apple-system,sans-serif;
-  --mono:"Montserrat","Segoe UI",system-ui,sans-serif;
+  --bg:#000000; --surface:#0E0B16; --line:#2C2C2C; --ink:#FFFFFF; --muted:#A0A0A0;
+  --accent:#8B3DFF; --accent-ink:#ffffff; --accent-soft:rgba(139,61,255,.14); --lilas:#C4A1FF; --warn:#FFB38A;
+  --grad:linear-gradient(136deg,#6F22E6 0%,#8F45FF 100%);
+  --glass:linear-gradient(165deg,rgba(14,10,22,.86),rgba(7,6,12,.64));
+  --display:"Zalando Sans SemiExpanded","Inter",system-ui,sans-serif;
+  --body:"Zalando Sans SemiExpanded","Inter",system-ui,sans-serif;
+  --mono:"Zalando Sans SemiExpanded","Inter",system-ui,sans-serif;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -74,16 +76,47 @@ body{position:relative;overflow-x:hidden}
 .foot b{color:var(--ink);font-family:var(--display);font-weight:800;letter-spacing:.2em}
 .done .mono{width:44px;height:44px}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+/* Interface inspirada na Club Pro, em roxo Versa */
+body{background:#000;background-image:radial-gradient(circle at 0% 0%,rgba(139,61,255,.16),rgba(0,0,0,0) 38%),radial-gradient(circle at 100% 100%,rgba(139,61,255,.08),rgba(0,0,0,0) 38%);background-attachment:fixed;padding-block:0 56px;font-size:15.5px}
+.rings{display:none}
+.top{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:16px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);margin-bottom:24px}
+.top .in{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{width:32px;height:32px;flex:none}
+.logo b{font-weight:800;font-size:15px;letter-spacing:.14em}
+.tag{display:inline-flex;align-items:center;align-self:flex-start;padding:6px 14px;border-radius:999px;border:1px solid rgba(139,61,255,.6);background:rgba(139,61,255,.14);color:var(--lilas);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.tag-sm{font-size:11px;padding:5px 12px}
+.hero,.card{border:1px solid rgba(255,255,255,.14);border-radius:20px;background:var(--glass);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.hero{padding:24px clamp(18px,4vw,28px);display:flex;flex-direction:column}
+h1{font-weight:400;letter-spacing:0;line-height:1.14;margin:18px 0 14px;font-size:clamp(28px,6.4vw,40px)}
+.lead{color:#D9D9D9;line-height:1.65}
+.meta b{color:var(--lilas)}
+.stage-head h2{font-weight:400;font-size:22px}
+.stage-head small{font-weight:700;letter-spacing:.14em;color:var(--muted)}
+legend{font-weight:500}
+.chip span{border-radius:12px;border:1px solid rgba(255,255,255,.22);background:linear-gradient(140deg,rgba(22,22,22,.82),rgba(13,13,13,.82));font-size:14.5px;padding:10px 14px}
+.chip:hover span{border-color:rgba(169,112,255,.75)}
+.chip input:checked + span{background:var(--grad);border-color:rgba(169,112,255,.8);color:#fff;font-weight:700;box-shadow:0 0 18px rgba(139,61,255,.35)}
+textarea,input[type=text]{border:1px solid rgba(255,255,255,.22);background:rgba(10,10,10,.8)}
+textarea:focus,input[type=text]:focus{border-color:rgba(169,112,255,.8)}
+button{border-radius:12px;text-transform:uppercase;letter-spacing:.06em;font-weight:800;font-size:14px;padding:14px 22px}
+.primary{background:var(--grad);border:1px solid rgba(169,112,255,.62);color:#fff;box-shadow:0 0 24px rgba(139,61,255,.32)}
+.primary::before{content:"\2192";margin-right:10px}
+.ghost{background:linear-gradient(140deg,rgba(22,22,22,.82),rgba(13,13,13,.82));border:1px solid rgba(255,255,255,.26);color:#fff}
+.rail span{background:#2C2C2C}
+.rail span.on{background:linear-gradient(90deg,#6F22E6,#A970FF)}
+.done h2{font-weight:400}
+.foot b{letter-spacing:.14em}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 <svg class="rings" viewBox="0 0 420 420" aria-hidden="true"><circle cx="210" cy="210" r="200" fill="none" stroke="#8B3DFF" stroke-width="2" stroke-opacity="0.45"></circle><circle cx="250" cy="190" r="160" fill="none" stroke="#8B3DFF" stroke-width="2" stroke-opacity="0.3"></circle></svg>
+<nav class="top"><div class="in"><span class="logo"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg><b>VERSA CLUB</b></span><span class="tag tag-sm">Pesquisa oficial</span></div></nav>
 <div class="wrap">
-  <header>
-    <div class="brand"><svg class="mono" viewBox="0 0 100 100" aria-hidden="true"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg><div><b>VERSA CLUB</b><span>Pesquisa oficial</span></div></div>
-    <div class="eyebrow">Pesquisa de campo · LoL BR</div>
+  <header class="hero">
+    <div class="tag">Pesquisa de campo · LoL BR</div>
     <h1>Como o seu time se organiza hoje?</h1>
     <p class="lead">A Versa Club está criando uma ferramenta para times amadores e tier 2/3 de League of Legends marcarem treinos e scrims e cuidarem do elenco sem depender de grupo de mensagem. Suas respostas decidem o que entra primeiro.</p>
     <div class="meta"><span><b>4 min</b> para responder</span><span>Quase tudo é só tocar</span><span>Anônima, contato só se quiser</span></div>
