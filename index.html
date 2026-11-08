@@ -107,6 +107,19 @@ button{border-radius:12px;text-transform:uppercase;letter-spacing:.06em;font-wei
 .rail span.on{background:linear-gradient(90deg,#6F22E6,#A970FF)}
 .done h2{font-weight:400}
 .foot b{letter-spacing:.14em}
+.site-foot{max-width:640px;margin:40px auto 0;border-top:1px solid var(--line);padding-top:28px;position:relative;z-index:1}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px 28px}
+.cols h4{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cols a{display:block;color:#D9D9D9;text-decoration:none;font-size:14px;padding:4px 0}
+.cols a:hover{color:#fff}
+.cols a:focus-visible{outline:2px solid var(--lilas);outline-offset:2px;border-radius:6px}
+.cols p{font-size:14px;margin:0 0 12px;color:#D9D9D9}
+.dc{display:inline-flex!important;align-items:center;gap:10px;padding:12px 18px!important;border-radius:12px;background:var(--grad);border:1px solid rgba(169,112,255,.62);color:#fff!important;font-weight:800;font-size:13px!important;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 0 24px rgba(139,61,255,.3)}
+.dc svg{width:18px;height:18px;flex:none}
+.dc[aria-disabled="true"]{background:linear-gradient(140deg,rgba(22,22,22,.82),rgba(13,13,13,.82));border-color:rgba(255,255,255,.26);box-shadow:none;cursor:default;color:var(--muted)!important}
+.handle{display:block;margin-top:10px;font-size:13px;color:var(--muted)}
+.disc{font-size:12.5px;color:var(--muted);margin:28px 0 6px}
+.copy{font-size:12.5px;color:var(--muted);margin:0}
 [hidden]{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -327,8 +340,54 @@ button{border-radius:12px;text-transform:uppercase;letter-spacing:.06em;font-wei
     <p style="margin:0;color:var(--muted)">Se você topou o beta ou a conversa, vamos te chamar pelo contato que deixou. Pode mandar este link para o resto do seu time responder também.</p>
   </section>
 
-  <p class="foot"><b>VERSA CLUB</b><br>Pesquisa feita por jogadores para jogadores. Não é afiliada à Riot Games.</p>
 </div>
+
+<!-- RODAPE -->
+<footer class="site-foot">
+  <div class="cols">
+    <div>
+      <h4>Legal</h4>
+      <a href="legal.html#termos-legais">Termos legais</a>
+      <a href="legal.html#termos-de-uso">Termos de Uso</a>
+      <a href="legal.html#privacidade">Política de Privacidade</a>
+      <a href="legal.html#cookies">Política de Cookies</a>
+      <a href="legal.html#conteudo">Política de Conteúdo</a>
+    </div>
+    <div>
+      <h4>Políticas</h4>
+      <a href="legal.html#pagamentos">Política de Pagamentos</a>
+      <a href="legal.html#cancelamento">Política de Cancelamento</a>
+      <a href="legal.html#suporte">Suporte e Atendimento</a>
+      <a href="legal.html#comunidade">Política de Comunidade</a>
+      <a href="legal.html#torneios">Regulamento geral de torneios</a>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <p>Dúvidas sobre a pesquisa ou a Versa Club? Fala direto comigo.</p>
+      <a class="dc" id="dc-btn" href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg><span id="dc-txt">Discord em breve</span></a>
+      <span class="handle" id="dc-handle"></span>
+    </div>
+  </div>
+  <p class="disc">A Versa Club é independente e não é afiliada à Riot Games. League of Legends é marca registrada da Riot Games, Inc.</p>
+  <p class="copy">© 2026 Versa Club</p>
+</footer>
+<script>
+(function(){
+  var DISCORD_ID = '1242136007248449669';
+  var DISCORD_USER = '';
+  var b = document.getElementById('dc-btn');
+  if(DISCORD_ID){
+    b.href = 'https://discord.com/users/' + DISCORD_ID;
+    b.target = '_blank'; b.rel = 'noopener';
+    b.removeAttribute('aria-disabled');
+    document.getElementById('dc-txt').textContent = 'Falar comigo no Discord';
+  } else {
+    b.addEventListener('click', function(e){ e.preventDefault(); });
+  }
+  if(DISCORD_USER) document.getElementById('dc-handle').textContent = '@' + DISCORD_USER;
+})();
+</script>
+<!-- /RODAPE -->
 
 <script>
 (function(){
