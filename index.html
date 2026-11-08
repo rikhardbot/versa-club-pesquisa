@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Versa Club · Pesquisa</title>
+<meta name="description" content="Pesquisa da Versa Club para times amadores de League of Legends. 4 minutos, quase tudo é só tocar.">
+<meta property="og:title" content="Versa Club · Como o seu time se organiza hoje?">
+<meta property="og:description" content="Pesquisa rápida para times amadores e tier 2/3 de LoL. 4 minutos.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0D0A17">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230D0A17'/%3E%3Cpolygon points='6,12 30,12 50,68 50,92' fill='%238B3DFF'/%3E%3Cpolygon points='94,12 70,12 50,68 50,92' fill='%23F4F2FA'/%3E%3Cpolygon points='70,12 94,12 90.15,19 67.5,19' fill='%23C4A1FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#0D0A17; --surface:#17122A; --line:#2A2342; --ink:#F4F2FA; --muted:#A39DBB;
+  --accent:#8B3DFF; --accent-ink:#ffffff; --accent-soft:#2A1F4A; --lilas:#C4A1FF; --warn:#FFB38A;
+  --display:"Montserrat","Segoe UI",system-ui,sans-serif;
+  --body:"Inter",system-ui,-apple-system,sans-serif;
+  --mono:"Montserrat","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 56px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.eyebrow{font-family:var(--mono);font-weight:800;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--lilas)}
+h1{font-family:var(--display);font-weight:900;letter-spacing:-.01em;font-size:clamp(28px,6vw,40px);line-height:1.08;margin:6px 0 10px;text-wrap:balance}
+.lead{color:var(--muted);margin:0;max-width:56ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:14px;color:var(--muted)}
+.meta b{color:var(--ink);font-weight:600}
+.rail{display:flex;gap:6px}
+.rail span{flex:1;height:6px;border-radius:3px;background:var(--line);transition:background .3s}
+.rail span.on{background:var(--accent)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px clamp(18px,4vw,32px);display:flex;flex-direction:column;gap:26px}
+.stage-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.stage-head h2{font-family:var(--display);font-size:21px;font-weight:800;margin:0}
+.stage-head small{font-family:var(--mono);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--muted);white-space:nowrap}
+.qs{display:flex;flex-direction:column;gap:28px;margin-top:22px}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+legend{font-weight:600;font-size:16px;padding:0;margin-bottom:10px}
+legend .hint{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;padding:9px 14px;border:1.5px solid var(--line);border-radius:999px;font-size:15px;cursor:pointer;transition:border-color .15s,background .15s;user-select:none}
+.chip:hover span{border-color:var(--accent)}
+.chip input:checked + span{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.chip input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+.chip input:disabled + span{opacity:.4;cursor:not-allowed}
+textarea,input[type=text]{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;resize:vertical}
+textarea{min-height:100px}
+textarea:focus,input[type=text]:focus{outline:none;border-color:var(--accent)}
+.outro{margin-top:2px}
+.nav{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+button{font:inherit;font-weight:600;border-radius:10px;padding:12px 22px;cursor:pointer;border:1.5px solid transparent}
+button:disabled{opacity:.6;cursor:wait}
+.primary{background:var(--accent);color:var(--accent-ink)}
+.primary:hover{filter:brightness(1.08)}
+.ghost{background:transparent;color:var(--muted);border-color:var(--line)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.err{color:var(--warn);font-size:14px;min-height:1.2em;margin:0}
+.done h2{font-family:var(--display);font-weight:900;font-size:26px;margin:0}
+.foot{font-size:13px;color:var(--muted);text-align:center}
+body{position:relative;overflow-x:hidden}
+.rings{position:fixed;right:-160px;top:-180px;width:440px;height:440px;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.brand .mono{width:40px;height:40px;flex:none}
+.brand b{display:block;font-family:var(--display);font-weight:900;font-size:17px;letter-spacing:.32em;line-height:1.1}
+.brand span{display:block;font-size:12px;color:var(--muted);letter-spacing:.04em;margin-top:2px}
+.foot b{color:var(--ink);font-family:var(--display);font-weight:800;letter-spacing:.2em}
+.done .mono{width:44px;height:44px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg class="rings" viewBox="0 0 420 420" aria-hidden="true"><circle cx="210" cy="210" r="200" fill="none" stroke="#8B3DFF" stroke-width="2" stroke-opacity="0.45"></circle><circle cx="250" cy="190" r="160" fill="none" stroke="#8B3DFF" stroke-width="2" stroke-opacity="0.3"></circle></svg>
+<div class="wrap">
+  <header>
+    <div class="brand"><svg class="mono" viewBox="0 0 100 100" aria-hidden="true"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg><div><b>VERSA CLUB</b><span>Pesquisa oficial</span></div></div>
+    <div class="eyebrow">Pesquisa de campo · LoL BR</div>
+    <h1>Como o seu time se organiza hoje?</h1>
+    <p class="lead">A Versa Club está criando uma ferramenta para times amadores e tier 2/3 de League of Legends marcarem treinos e scrims e cuidarem do elenco sem depender de grupo de mensagem. Suas respostas decidem o que entra primeiro.</p>
+    <div class="meta"><span><b>4 min</b> para responder</span><span>Quase tudo é só tocar</span><span>Anônima, contato só se quiser</span></div>
+  </header>
+
+  <div class="rail" id="rail" aria-hidden="true"></div>
+
+  <form class="card" id="form" novalidate>
+    <div class="hp" aria-hidden="true"><label for="site">Não preencha este campo</label><input type="text" id="site" name="site" tabindex="-1" autocomplete="off"></div>
+    <section data-step="s1">
+      <div class="stage-head"><h2>Você e o seu time</h2><small class="cnt"></small></div>
+      <div class="qs">
+        <fieldset data-req="papel"><legend>Qual é o seu papel no time?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="papel" id="papel-capitao" value="Capitão"><span>Capitão</span></label>
+            <label class="chip"><input type="radio" name="papel" id="papel-dono" value="Dono ou manager"><span>Dono ou manager</span></label>
+            <label class="chip"><input type="radio" name="papel" id="papel-coach" value="Coach ou analista"><span>Coach ou analista</span></label>
+            <label class="chip"><input type="radio" name="papel" id="papel-jogador" value="Jogador"><span>Jogador</span></label>
+            <label class="chip"><input type="radio" name="papel" id="papel-semtime" value="Sem time no momento"><span>Sem time no momento</span></label>
+          </div>
+        </fieldset>
+        <fieldset data-req="tipo" data-team><legend>Que tipo de time é?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="tipo" id="tipo-amigos" value="Time de amigos"><span>Time de amigos</span></label>
+            <label class="chip"><input type="radio" name="tipo" id="tipo-org" value="Org pequena"><span>Org pequena</span></label>
+            <label class="chip"><input type="radio" name="tipo" id="tipo-uni" value="Universitário"><span>Universitário</span></label>
+            <label class="chip"><input type="radio" name="tipo" id="tipo-semi" value="Semiprofissional"><span>Semiprofissional</span></label>
+          </div>
+        </fieldset>
+        <fieldset data-req="decide" data-team><legend>Quem decide as ferramentas que o time usa?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="decide" id="dec-eu" value="Eu"><span>Eu</span></label>
+            <label class="chip"><input type="radio" name="decide" id="dec-cap" value="O capitão"><span>O capitão</span></label>
+            <label class="chip"><input type="radio" name="decide" id="dec-dono" value="O dono ou a org"><span>O dono ou a org</span></label>
+            <label class="chip"><input type="radio" name="decide" id="dec-juntos" value="Decidimos juntos"><span>Decidimos juntos</span></label>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <section data-step="sx" hidden>
+      <div class="stage-head"><h2>Procurando time</h2><small class="cnt"></small></div>
+      <div class="qs">
+        <fieldset data-req="semtime"><legend>O que mais dificulta achar um time?<span class="hint">Marque até 3</span></legend>
+          <div class="chips" data-max="3">
+            <label class="chip"><input type="checkbox" name="semtime" id="st-elo" value="Não acho times do meu elo"><span>Não acho times do meu elo</span></label>
+            <label class="chip"><input type="checkbox" name="semtime" id="st-onde" value="Não sei onde procurar"><span>Não sei onde procurar</span></label>
+            <label class="chip"><input type="checkbox" name="semtime" id="st-try" value="Tryouts desorganizados"><span>Tryouts desorganizados</span></label>
+            <label class="chip"><input type="checkbox" name="semtime" id="st-acaba" value="Times acabam rápido"><span>Times acabam rápido</span></label>
+            <label class="chip"><input type="checkbox" name="semtime" id="st-hora" value="Horários não batem"><span>Horários não batem</span></label>
+            <label class="chip"><input type="checkbox" name="semtime" id="st-outro" value="Outro"><span>Outro</span></label>
+          </div>
+          <input type="text" class="outro" id="semtime-outro" maxlength="120" placeholder="Qual?" aria-label="Outro: qual?" hidden>
+        </fieldset>
+        <fieldset data-req="eloj"><legend>Qual é o seu elo?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="eloj" id="eloj-1" value="Ferro a Prata"><span>Ferro a Prata</span></label>
+            <label class="chip"><input type="radio" name="eloj" id="eloj-2" value="Ouro a Platina"><span>Ouro a Platina</span></label>
+            <label class="chip"><input type="radio" name="eloj" id="eloj-3" value="Esmeralda a Diamante"><span>Esmeralda a Diamante</span></label>
+            <label class="chip"><input type="radio" name="eloj" id="eloj-4" value="Mestre ou acima"><span>Mestre+</span></label>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <section data-step="s2" hidden>
+      <div class="stage-head"><h2>A semana do time</h2><small class="cnt"></small></div>
+      <div class="qs">
+        <fieldset data-req="freq"><legend>Quantos treinos ou scrims por semana?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="freq" id="freq-0" value="Nenhum fixo"><span>Nenhum fixo</span></label>
+            <label class="chip"><input type="radio" name="freq" id="freq-1" value="1 a 2"><span>1 a 2</span></label>
+            <label class="chip"><input type="radio" name="freq" id="freq-3" value="3 a 4"><span>3 a 4</span></label>
+            <label class="chip"><input type="radio" name="freq" id="freq-5" value="5 ou mais"><span>5 ou mais</span></label>
+          </div>
+        </fieldset>
+        <fieldset data-req="furos"><legend>Na última semana, quantas vezes um treino ou scrim furou ou foi cancelado?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="furos" id="furos-0" value="Nenhuma"><span>Nenhuma</span></label>
+            <label class="chip"><input type="radio" name="furos" id="furos-1" value="1 vez"><span>1 vez</span></label>
+            <label class="chip"><input type="radio" name="furos" id="furos-2" value="2 a 3 vezes"><span>2 a 3 vezes</span></label>
+            <label class="chip"><input type="radio" name="furos" id="furos-4" value="4 ou mais"><span>4 ou mais</span></label>
+          </div>
+        </fieldset>
+        <fieldset data-req="horas"><legend>Quanto tempo por semana alguém gasta organizando o time?<span class="hint">Marcar horário, cobrar presença, achar scrim, avisar todo mundo</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="horas" id="horas-0" value="Menos de 1h"><span>Menos de 1h</span></label>
+            <label class="chip"><input type="radio" name="horas" id="horas-1" value="1 a 3h"><span>1 a 3h</span></label>
+            <label class="chip"><input type="radio" name="horas" id="horas-3" value="3 a 5h"><span>3 a 5h</span></label>
+            <label class="chip"><input type="radio" name="horas" id="horas-5" value="Mais de 5h"><span>Mais de 5h</span></label>
+          </div>
+        </fieldset>
+        <fieldset data-req="ferramentas"><legend>O que vocês usam para se organizar?<span class="hint">Marque todas que usam</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="ferramentas" id="f-discord" value="Discord"><span>Discord</span></label>
+            <label class="chip"><input type="checkbox" name="ferramentas" id="f-whats" value="WhatsApp"><span>WhatsApp</span></label>
+            <label class="chip"><input type="checkbox" name="ferramentas" id="f-planilha" value="Planilhas"><span>Planilhas</span></label>
+            <label class="chip"><input type="checkbox" name="ferramentas" id="f-opgg" value="op.gg / Mobalytics / Blitz"><span>op.gg / Mobalytics / Blitz</span></label>
+            <label class="chip"><input type="checkbox" name="ferramentas" id="f-notion" value="Notion ou Trello"><span>Notion ou Trello</span></label>
+            <label class="chip"><input type="checkbox" name="ferramentas" id="f-nada" value="Nada, é tudo na conversa"><span>Nada, é tudo na conversa</span></label>
+            <label class="chip"><input type="checkbox" name="ferramentas" id="f-outro" value="Outro"><span>Outro</span></label>
+          </div>
+          <input type="text" class="outro" id="ferramentas-outro" maxlength="120" placeholder="Qual?" aria-label="Outro: qual?" hidden>
+        </fieldset>
+        <fieldset><legend><label for="campeonatos">Em quais campeonatos o time joga?</label><span class="hint">Opcional. Ex.: Circuito Desafiante, copas de Discord, liga universitária</span></legend>
+          <input type="text" id="campeonatos" name="campeonatos" maxlength="200">
+        </fieldset>
+      </div>
+    </section>
+
+    <section data-step="s3" hidden>
+      <div class="stage-head"><h2>O que dá mais dor de cabeça</h2><small class="cnt"></small></div>
+      <div class="qs">
+        <fieldset data-req="dores"><legend>Escolha as 3 maiores dores<span class="hint" id="dores-count">0 de 3 escolhidas</span></legend>
+          <div class="chips" data-max="3" data-count="dores-count">
+            <label class="chip"><input type="checkbox" name="dores" id="d-scrim" value="Achar e marcar scrims"><span>Achar e marcar scrims</span></label>
+            <label class="chip"><input type="checkbox" name="dores" id="d-5" value="Juntar os 5 no mesmo horário"><span>Juntar os 5 no mesmo horário</span></label>
+            <label class="chip"><input type="checkbox" name="dores" id="d-furo" value="Scrim ou treino furado"><span>Scrim ou treino furado</span></label>
+            <label class="chip"><input type="checkbox" name="dores" id="d-evolucao" value="Acompanhar a evolução do time"><span>Acompanhar a evolução do time</span></label>
+            <label class="chip"><input type="checkbox" name="dores" id="d-reserva" value="Achar reserva ou substituto"><span>Achar reserva ou substituto</span></label>
+            <label class="chip"><input type="checkbox" name="dores" id="d-grana" value="Dividir premiação e inscrições"><span>Dividir premiação e inscrições</span></label>
+            <label class="chip"><input type="checkbox" name="dores" id="d-camp" value="Saber de campeonatos abertos"><span>Saber de campeonatos abertos</span></label>
+            <label class="chip"><input type="checkbox" name="dores" id="d-patro" value="Apresentar o time a patrocinadores"><span>Apresentar o time a patrocinadores</span></label>
+            <label class="chip"><input type="checkbox" name="dores" id="d-outro" value="Outro"><span>Outro</span></label>
+          </div>
+          <input type="text" class="outro" id="dores-outro" maxlength="120" placeholder="Qual?" aria-label="Outro: qual?" hidden>
+        </fieldset>
+        <fieldset><legend><label for="ultima">Conta a última vez que um treino ou scrim deu errado</label><span class="hint">O que aconteceu e o que vocês fizeram? Opcional, mas é a resposta que mais ajuda.</span></legend>
+          <textarea id="ultima" name="ultima" maxlength="1000" placeholder="Ex.: sexta marcamos scrim às 21h, o outro time sumiu, ficamos 40 min procurando outro no Discord e desistimos"></textarea>
+        </fieldset>
+      </div>
+    </section>
+
+    <section data-step="s4" hidden>
+      <div class="stage-head"><h2>Ferramenta e dinheiro</h2><small class="cnt"></small></div>
+      <div class="qs">
+        <fieldset data-req="funcao"><legend>Se você pudesse ter só UMA dessas, qual escolheria?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="funcao" id="fn-agenda" value="Agenda com disponibilidade dos 5"><span>Agenda com disponibilidade dos 5</span></label>
+            <label class="chip"><input type="radio" name="funcao" id="fn-mural" value="Mural para achar scrims"><span>Mural para achar scrims</span></label>
+            <label class="chip"><input type="radio" name="funcao" id="fn-lembrete" value="Lembrete e confirmação de presença"><span>Lembrete e confirmação de presença</span></label>
+            <label class="chip"><input type="radio" name="funcao" id="fn-stats" value="Estatísticas automáticas das partidas"><span>Estatísticas automáticas das partidas</span></label>
+            <label class="chip"><input type="radio" name="funcao" id="fn-coach" value="Anotações do coach por scrim"><span>Anotações do coach por scrim</span></label>
+            <label class="chip"><input type="radio" name="funcao" id="fn-pagina" value="Página pública do time"><span>Página pública do time</span></label>
+            <label class="chip"><input type="radio" name="funcao" id="fn-caixa" value="Caixa do time e divisão por Pix"><span>Caixa do time e divisão por Pix</span></label>
+            <label class="chip"><input type="radio" name="funcao" id="fn-reservas" value="Banco de reservas e jogadores livres"><span>Banco de reservas e jogadores livres</span></label>
+            <label class="chip"><input type="radio" name="funcao" id="fn-outro" value="Outro"><span>Outro</span></label>
+          </div>
+          <input type="text" class="outro" id="funcao-outro" maxlength="120" placeholder="Qual?" aria-label="Outro: qual?" hidden>
+        </fieldset>
+        <fieldset data-req="gastos"><legend>Nos últimos 3 meses, o time gastou dinheiro com algo disso?<span class="hint">Marque todas</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="gastos" id="g-insc" value="Inscrição de campeonato"><span>Inscrição de campeonato</span></label>
+            <label class="chip"><input type="checkbox" name="gastos" id="g-coach" value="Coach ou analista"><span>Coach ou analista</span></label>
+            <label class="chip"><input type="checkbox" name="gastos" id="g-ferr" value="Bot ou ferramenta"><span>Bot ou ferramenta</span></label>
+            <label class="chip"><input type="checkbox" name="gastos" id="g-visual" value="Uniforme ou identidade visual"><span>Uniforme ou identidade visual</span></label>
+            <label class="chip"><input type="checkbox" name="gastos" id="g-nada" value="Nada"><span>Nada</span></label>
+          </div>
+        </fieldset>
+        <fieldset data-req="gastomes" id="fs-gastomes" hidden><legend>Quanto, mais ou menos, por mês somando tudo?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="gastomes" id="gm-20" value="Até R$ 20"><span>Até R$ 20</span></label>
+            <label class="chip"><input type="radio" name="gastomes" id="gm-50" value="R$ 20 a R$ 50"><span>R$ 20 a 50</span></label>
+            <label class="chip"><input type="radio" name="gastomes" id="gm-100" value="R$ 50 a R$ 100"><span>R$ 50 a 100</span></label>
+            <label class="chip"><input type="radio" name="gastomes" id="gm-100m" value="Mais de R$ 100"><span>Mais de R$ 100</span></label>
+          </div>
+        </fieldset>
+      </div>
+    </section>
+
+    <section data-step="s5" hidden>
+      <div class="stage-head"><h2>Quer participar mais?</h2><small class="cnt"></small></div>
+      <div class="qs">
+        <fieldset data-req="beta"><legend>Topa testar a ferramenta antes de todo mundo?</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="beta" id="beta-sim" value="Sim, quero testar"><span>Sim, quero testar</span></label>
+            <label class="chip"><input type="radio" name="beta" id="beta-talvez" value="Talvez"><span>Talvez</span></label>
+            <label class="chip"><input type="radio" name="beta" id="beta-nao" value="Não agora"><span>Não agora</span></label>
+          </div>
+        </fieldset>
+        <fieldset data-req="entrevista"><legend>Topa uma conversa de 15 minutos por chamada?<span class="hint">Para entender melhor como o seu time funciona</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="entrevista" id="ent-sim" value="Sim"><span>Sim, topo</span></label>
+            <label class="chip"><input type="radio" name="entrevista" id="ent-nao" value="Não"><span>Prefiro não</span></label>
+          </div>
+        </fieldset>
+        <fieldset data-team><legend><label for="time">Nome do time</label><span class="hint">Opcional</span></legend>
+          <input type="text" id="time" name="time" maxlength="60" placeholder="Ex.: Versality Gaming">
+        </fieldset>
+        <fieldset><legend><label for="contato">Discord ou e-mail para contato</label><span class="hint" id="contato-hint">Opcional. Só usamos para o beta ou a conversa.</span></legend>
+          <input type="text" id="contato" name="contato" maxlength="80" placeholder="Ex.: seunick ou voce@email.com">
+        </fieldset>
+      </div>
+    </section>
+
+    <p class="err" id="err" role="alert"></p>
+    <div class="nav">
+      <button type="button" class="ghost" id="back" hidden>Voltar</button>
+      <span></span>
+      <button type="submit" class="primary" id="next">Continuar</button>
+    </div>
+  </form>
+
+  <section class="card done" id="done" hidden>
+    <svg class="mono" viewBox="0 0 100 100" aria-hidden="true"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg>
+    <div class="eyebrow">GG · Versa Club</div>
+    <h2>Valeu! Resposta registrada.</h2>
+    <p style="margin:0;color:var(--muted)">Se você topou o beta ou a conversa, vamos te chamar pelo contato que deixou. Pode mandar este link para o resto do seu time responder também.</p>
+  </section>
+
+  <p class="foot"><b>VERSA CLUB</b><br>Pesquisa feita por jogadores para jogadores. Não é afiliada à Riot Games.</p>
+</div>
+
+<script>
+(function(){
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwC4wslOWBavjSzDrRy7zrStHdp-k7p2l__JGYHL10_TwUrbKP9vNMq9Feg0eWQSNRylQ/exec';
+  var form = document.getElementById('form');
+  var secs = {}; Array.prototype.forEach.call(form.querySelectorAll('section[data-step]'), function(s){ secs[s.dataset.step] = s; });
+  var back = document.getElementById('back'), next = document.getElementById('next'), err = document.getElementById('err'), rail = document.getElementById('rail');
+  var pos = 0;
+  var MULTI = ['ferramentas','dores','gastos','semtime'];
+  var CAMPOS = ['papel','tipo','decide','semtime','eloj','freq','furos','horas','ferramentas','campeonatos','dores','ultima','funcao','gastos','gastomes','beta','entrevista','time','contato'];
+
+  function els(name){ return Array.prototype.slice.call(form.elements).filter(function(e){ return e.name===name; }); }
+  function semTime(){ var c = els('papel').filter(function(e){ return e.checked; })[0]; return c && c.value==='Sem time no momento'; }
+  function fluxo(){ return semTime() ? ['s1','sx','s5'] : ['s1','s2','s3','s4','s5']; }
+  function outroTxt(name){ var i = document.getElementById(name+'-outro'); return i ? i.value.trim() : ''; }
+  function val(name){
+    var e = els(name);
+    if(!e.length) return '';
+    if(e[0].type==='checkbox') return e.filter(function(x){ return x.checked; }).map(function(x){ return x.value==='Outro' ? 'Outro: '+outroTxt(name) : x.value; });
+    if(e[0].type==='radio'){ var c = e.filter(function(x){ return x.checked; })[0]; if(!c) return ''; return c.value==='Outro' ? 'Outro: '+outroTxt(name) : c.value; }
+    return e[0].value.trim();
+  }
+  function show(i){
+    var f = fluxo();
+    Object.keys(secs).forEach(function(k){ secs[k].hidden = k!==f[i]; });
+    secs.s1.querySelectorAll('[data-team]').forEach(function(x){ x.hidden = semTime(); });
+    secs.s5.querySelectorAll('[data-team]').forEach(function(x){ x.hidden = semTime(); });
+    rail.innerHTML = f.map(function(_,k){ return '<span'+(k<=i?' class="on"':'')+'></span>'; }).join('');
+    secs[f[i]].querySelector('.cnt').textContent = 'Etapa '+(i+1)+' de '+f.length;
+    back.hidden = i===0;
+    next.textContent = i===f.length-1 ? 'Enviar respostas' : 'Continuar';
+    err.textContent = '';
+    pos = i;
+    window.scrollTo(0,0);
+  }
+  function titulo(fs){ return fs.querySelector('legend').firstChild.textContent.trim(); }
+  function validar(){
+    var sec = secs[fluxo()[pos]];
+    var fss = sec.querySelectorAll('fieldset');
+    for(var k=0;k<fss.length;k++){
+      var fs = fss[k]; if(fs.hidden) continue;
+      var nome = fs.dataset.req;
+      if(nome){
+        var v = val(nome);
+        if(!v || (Array.isArray(v) && !v.length)){ err.textContent = 'Responda: '+titulo(fs); return false; }
+      }
+      var o = fs.querySelector('input.outro');
+      if(o && !o.hidden && !o.value.trim()){ err.textContent = 'Escreva qual é o "Outro" em: '+titulo(fs); o.focus(); return false; }
+    }
+    if(fluxo()[pos]==='s5' && val('entrevista')==='Sim' && !val('contato')){ err.textContent = 'Para a conversa, deixe um Discord ou e-mail de contato.'; document.getElementById('contato').focus(); return false; }
+    return true;
+  }
+
+  ['semtime','ferramentas','dores','funcao'].forEach(function(n){
+    var inp = document.getElementById(n+'-outro');
+    els(n).forEach(function(x){ x.addEventListener('change', function(){
+      var on = els(n).some(function(y){ return y.value==='Outro' && y.checked; });
+      inp.hidden = !on; if(on && x.value==='Outro') inp.focus();
+    }); });
+  });
+  form.querySelectorAll('.chips[data-max]').forEach(function(box){
+    var max = Number(box.dataset.max), boxes = Array.prototype.slice.call(box.querySelectorAll('input[type=checkbox]')), cnt = box.dataset.count ? document.getElementById(box.dataset.count) : null;
+    boxes.forEach(function(b){ b.addEventListener('change', function(){
+      var n = boxes.filter(function(x){ return x.checked; }).length;
+      boxes.forEach(function(x){ if(!x.checked) x.disabled = n>=max; });
+      if(cnt) cnt.textContent = n+' de '+max+' escolhidas';
+    }); });
+  });
+  var gastos = els('gastos'), gm = document.getElementById('fs-gastomes');
+  gastos.forEach(function(g){ g.addEventListener('change', function(){
+    if(g.checked && g.value==='Nada') gastos.forEach(function(x){ if(x!==g) x.checked=false; });
+    if(g.checked && g.value!=='Nada') gastos.forEach(function(x){ if(x.value==='Nada') x.checked=false; });
+    var algo = gastos.some(function(x){ return x.checked && x.value!=='Nada'; });
+    gm.hidden = !algo;
+    if(!algo) els('gastomes').forEach(function(x){ x.checked=false; });
+  }); });
+  els('entrevista').forEach(function(x){ x.addEventListener('change', function(){
+    document.getElementById('contato-hint').textContent = val('entrevista')==='Sim' ? 'Obrigatório para a conversa.' : 'Opcional. Só usamos para o beta ou a conversa.';
+  }); });
+  els('papel').forEach(function(x){ x.addEventListener('change', function(){ show(0); }); });
+
+  function falhou(){
+    next.disabled = false; back.disabled = false; next.textContent = 'Enviar respostas';
+    err.textContent = 'Não foi possível enviar agora. Verifique a internet e toque em Enviar de novo.';
+  }
+  back.addEventListener('click', function(){ show(pos-1); });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!validar()) return;
+    if(pos < fluxo().length-1){ show(pos+1); return; }
+    var f = fluxo(), visiveis = {};
+    f.forEach(function(k){ secs[k].querySelectorAll('fieldset').forEach(function(fs){ if(!fs.hidden) fs.querySelectorAll('[name]').forEach(function(i){ visiveis[i.name]=1; }); }); });
+    var data = {}; CAMPOS.forEach(function(k){ data[k] = visiveis[k] ? val(k) : (MULTI.indexOf(k)>=0 ? [] : ''); });
+    data.site = document.getElementById('site').value;
+    next.disabled = true; back.disabled = true; next.textContent = 'Enviando...';
+    fetch(ENDPOINT, { method:'POST', headers:{ 'Content-Type':'text/plain;charset=utf-8' }, body: JSON.stringify(data), credentials:'omit', redirect:'follow' })
+      .then(function(r){ return r.json(); })
+      .then(function(res){
+        if(!res || !res.ok){ falhou(); return; }
+        form.hidden = true; rail.hidden = true;
+        document.getElementById('done').hidden = false; window.scrollTo(0,0);
+      })
+      .catch(falhou);
+  });
+  show(0);
+})();
+</script>
+</body>
+</html>
