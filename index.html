@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Versa Club</title>
+<meta name="description" content="Versa Club: o grupo por trás da Versality Gaming. Times, torneios e ferramentas para o LoL amador brasileiro.">
+<meta property="og:title" content="Versa Club">
+<meta property="og:description" content="Times, torneios e ferramentas para o LoL amador brasileiro.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230D0A17'/%3E%3Cpolygon points='6,12 30,12 50,68 50,92' fill='%238B3DFF'/%3E%3Cpolygon points='94,12 70,12 50,68 50,92' fill='%23F4F2FA'/%3E%3Cpolygon points='70,12 94,12 90.15,19 67.5,19' fill='%23C4A1FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zalando+Sans+SemiExpanded:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --line:#2C2C2C; --ink:#FFFFFF; --ink2:#D9D9D9; --muted:#A0A0A0;
+  --accent:#8B3DFF; --lilas:#C4A1FF; --ok:#7CE0A6;
+  --grad:linear-gradient(136deg,#6F22E6 0%,#8F45FF 100%);
+  --glass:linear-gradient(165deg,rgba(14,10,22,.86),rgba(7,6,12,.64));
+  --dark:linear-gradient(140deg,rgba(22,22,22,.82),rgba(13,13,13,.82));
+  --font:"Zalando Sans SemiExpanded","Inter",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+html,body{margin:0}
+body{background:#000;background-image:radial-gradient(circle at 0% 0%,rgba(139,61,255,.18),rgba(0,0,0,0) 40%),radial-gradient(circle at 100% 100%,rgba(139,61,255,.08),rgba(0,0,0,0) 38%);background-attachment:fixed;color:var(--ink);font-family:var(--font);font-size:15.5px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#000}
+a{color:var(--lilas)}
+a:focus-visible{outline:2px solid var(--lilas);outline-offset:3px;border-radius:8px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding:14px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);background:rgba(0,0,0,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.top .in{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+a.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.logo svg{width:32px;height:32px;flex:none}
+.logo b{font-weight:800;font-size:15px;letter-spacing:.14em}
+.navr{display:flex;align-items:center;gap:20px}
+.navlink{color:var(--ink2);text-decoration:none;font-size:14px}
+.navlink:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 22px;border-radius:12px;text-decoration:none;font-weight:800;font-size:13.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.btn-p{background:var(--grad);border:1px solid rgba(169,112,255,.62);color:#fff;box-shadow:0 0 24px rgba(139,61,255,.32)}
+.btn-p:hover{filter:brightness(1.08)}
+.btn-g{background:var(--dark);border:1px solid rgba(255,255,255,.26);color:#fff}
+.btn-g:hover{border-color:rgba(169,112,255,.75)}
+.cta-top{padding:10px 16px;font-size:12.5px}
+main{max-width:1080px;margin:24px auto 0;display:flex;flex-direction:column;gap:20px}
+.card{border:1px solid rgba(255,255,255,.14);border-radius:20px;background:var(--glass);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);padding:28px clamp(18px,4vw,36px)}
+.tag{display:inline-flex;align-items:center;align-self:flex-start;padding:6px 14px;border-radius:999px;border:1px solid rgba(139,61,255,.6);background:rgba(139,61,255,.14);color:var(--lilas);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.label{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
+.hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px;align-items:center;padding-block:40px}
+.hero h1{font-weight:400;font-size:clamp(34px,6vw,58px);line-height:1.06;margin:18px 0 16px;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--lilas)}
+.hero p{color:var(--ink2);font-size:16.5px;max-width:52ch;margin:0}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.mark{display:flex;align-items:center;justify-content:center}
+.mark svg{width:min(260px,70%);height:auto;filter:drop-shadow(0 0 40px rgba(139,61,255,.45))}
+.sec-head{display:flex;flex-direction:column;gap:6px;margin:20px 0 4px}
+.sec-head h2{font-weight:400;font-size:clamp(24px,4vw,32px);line-height:1.15;margin:0;text-wrap:balance}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.front{display:flex;flex-direction:column;gap:12px;padding:24px}
+.front h3{font-weight:500;font-size:20px;margin:0}
+.front p{color:var(--ink2);margin:0;font-size:14.5px}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status.on{color:var(--ok)}
+.status.on i{background:var(--ok);box-shadow:0 0 10px rgba(124,224,166,.7)}
+.status.dev{color:var(--lilas)}
+.status.dev i{background:var(--lilas)}
+.front a{margin-top:auto;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.front a:hover{color:#fff}
+.band{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;background:linear-gradient(120deg,rgba(111,34,230,.28),rgba(14,10,22,.86) 60%);border-color:rgba(169,112,255,.4)}
+.band h2{font-weight:400;font-size:clamp(22px,3.6vw,30px);line-height:1.2;margin:10px 0 8px;text-wrap:balance}
+.band p{color:var(--ink2);margin:0;max-width:56ch}
+.band .meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:13.5px;color:var(--muted)}
+.band .meta b{color:var(--lilas);font-weight:700}
+.contact{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center}
+.contact h2{font-weight:400;font-size:24px;margin:10px 0 6px}
+.contact p{color:var(--ink2);margin:0}
+.site-foot{max-width:1080px;margin:40px auto 0;border-top:1px solid var(--line);padding-top:28px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px 28px}
+.cols h4{margin:0 0 10px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cols a{display:block;color:var(--ink2);text-decoration:none;font-size:14px;padding:4px 0}
+.cols a:hover{color:#fff}
+.cols p{font-size:14px;margin:0 0 12px;color:var(--ink2)}
+.dc{display:inline-flex!important;align-items:center;gap:10px;padding:12px 18px!important;border-radius:12px;background:var(--grad);border:1px solid rgba(169,112,255,.62);color:#fff!important;font-weight:800;font-size:13px!important;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 0 24px rgba(139,61,255,.3)}
+.dc svg{width:18px;height:18px;flex:none}
+.dc[aria-disabled="true"]{background:var(--dark);border-color:rgba(255,255,255,.26);box-shadow:none;cursor:default;color:var(--muted)!important}
+.handle{display:block;margin-top:10px;font-size:13px;color:var(--muted)}
+.disc{font-size:12.5px;color:var(--muted);margin:28px 0 6px}
+.copy{font-size:12.5px;color:var(--muted);margin:0}
+@media (max-width:860px){.hero{grid-template-columns:1fr;padding-block:32px}.mark{display:none}.grid3{grid-template-columns:1fr}.band,.contact{grid-template-columns:1fr}}
+@media (max-width:560px){.navlink{display:none}.cta-top{padding:9px 12px;font-size:11.5px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav class="top" aria-label="Principal"><div class="in">
+  <a class="logo" href="./" aria-label="Versa Club, página inicial"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg><b>VERSA CLUB</b></a>
+  <div class="navr">
+    <a class="navlink" href="#frentes">O que fazemos</a>
+    <a class="navlink" href="#contato">Contato</a>
+    <a class="btn btn-p cta-top" href="pesquisa.html">Participar da pesquisa</a>
+  </div>
+</div></nav>
+
+<main>
+  <section class="card hero">
+    <div>
+      <span class="tag">Grupo de esports · LoL BR</span>
+      <h1>O LoL amador levado <em>a sério</em>.</h1>
+      <p>A Versa Club é o grupo por trás da Versality Gaming. Montamos times, organizamos torneios e estamos criando uma ferramenta para quem joga competitivo sem ter uma estrutura de time grande.</p>
+      <div class="ctas">
+        <a class="btn btn-p" href="pesquisa.html">&#8594; Participar da pesquisa</a>
+        <a class="btn btn-g" href="#frentes">Conhecer a Versa</a>
+      </div>
+    </div>
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 100 100"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg></div>
+  </section>
+
+  <div class="sec-head" id="frentes">
+    <p class="label">O que fazemos</p>
+    <h2>Três frentes, um mesmo objetivo</h2>
+  </div>
+  <section class="grid3">
+    <article class="card front">
+      <span class="status on"><i></i>Ativa</span>
+      <h3>Versality Gaming</h3>
+      <p>A equipe de League of Legends do grupo. É onde a Versa Club joga, treina e testa na prática tudo o que constrói.</p>
+      <p class="label">@versality_gg</p>
+    </article>
+    <article class="card front">
+      <span class="status dev"><i></i>Em desenvolvimento</span>
+      <h3>Ferramenta para times</h3>
+      <p>Agenda com a disponibilidade dos 5, mural para achar scrims, confirmação de presença e elenco organizado, num só lugar e em português.</p>
+      <a href="pesquisa.html">Ajude a definir &#8594;</a>
+    </article>
+    <article class="card front">
+      <span class="status"><i></i>Em breve</span>
+      <h3>Torneios</h3>
+      <p>Copas para times amadores, com regras claras, horários respeitados e premiação paga em dia.</p>
+      <a href="legal.html#torneios">Ver o regulamento &#8594;</a>
+    </article>
+  </section>
+
+  <section class="card band" aria-labelledby="pesquisa-titulo">
+    <div>
+      <span class="tag">Pesquisa aberta</span>
+      <h2 id="pesquisa-titulo">Sua resposta decide o que a ferramenta faz primeiro</h2>
+      <p>Capitão, dono de org, coach, jogador ou ainda sem time: conta como é a rotina do seu time e o que mais atrapalha.</p>
+      <div class="meta"><span><b>4 min</b> para responder</span><span>Quase tudo é só tocar</span><span>Anônima</span></div>
+    </div>
+    <a class="btn btn-p" href="pesquisa.html">&#8594; Participar da pesquisa</a>
+  </section>
+
+  <section class="card contact" id="contato">
+    <div>
+      <p class="label">Contato</p>
+      <h2>Quer falar com a Versa Club?</h2>
+      <p>Parcerias, dúvidas sobre a pesquisa ou interesse em jogar com a gente. Me chama direto no Discord.</p>
+    </div>
+    <a class="btn btn-g" id="dc-main" href="#">Falar no Discord</a>
+  </section>
+</main>
+
+<!-- RODAPE -->
+<footer class="site-foot">
+  <div class="cols">
+    <div>
+      <h4>Legal</h4>
+      <a href="legal.html#termos-legais">Termos legais</a>
+      <a href="legal.html#termos-de-uso">Termos de Uso</a>
+      <a href="legal.html#privacidade">Política de Privacidade</a>
+      <a href="legal.html#cookies">Política de Cookies</a>
+      <a href="legal.html#conteudo">Política de Conteúdo</a>
+    </div>
+    <div>
+      <h4>Políticas</h4>
+      <a href="legal.html#pagamentos">Política de Pagamentos</a>
+      <a href="legal.html#cancelamento">Política de Cancelamento</a>
+      <a href="legal.html#suporte">Suporte e Atendimento</a>
+      <a href="legal.html#comunidade">Política de Comunidade</a>
+      <a href="legal.html#torneios">Regulamento geral de torneios</a>
+    </div>
+    <div>
+      <h4>Contato</h4>
+      <p>Dúvidas sobre a pesquisa ou a Versa Club? Fala direto comigo.</p>
+      <a class="dc" id="dc-btn" href="#" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"></path></svg><span id="dc-txt">Discord em breve</span></a>
+      <span class="handle" id="dc-handle"></span>
+    </div>
+  </div>
+  <p class="disc">A Versa Club é independente e não é afiliada à Riot Games. League of Legends é marca registrada da Riot Games, Inc.</p>
+  <p class="copy">© 2026 Versa Club</p>
+</footer>
+<script>
+(function(){
+  var DISCORD_ID = '1242136007248449669';
+  var DISCORD_USER = '';
+  var url = DISCORD_ID ? 'https://discord.com/users/' + DISCORD_ID : '';
+  var b = document.getElementById('dc-btn'), m = document.getElementById('dc-main');
+  if(url){
+    [b, m].forEach(function(a){ if(!a) return; a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.removeAttribute('aria-disabled'); });
+    document.getElementById('dc-txt').textContent = 'Falar comigo no Discord';
+  } else {
+    [b, m].forEach(function(a){ if(a) a.addEventListener('click', function(e){ e.preventDefault(); }); });
+  }
+  if(DISCORD_USER) document.getElementById('dc-handle').textContent = '@' + DISCORD_USER;
+})();
+</script>
+<!-- /RODAPE -->
+</body>
+</html>
