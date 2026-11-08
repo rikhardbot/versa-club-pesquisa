@@ -84,6 +84,13 @@ body{background:#000;background-image:radial-gradient(circle at 0% 0%,rgba(139,6
 .logo{display:flex;align-items:center;gap:10px}
 .logo svg{width:32px;height:32px;flex:none}
 .logo b{font-weight:800;font-size:15px;letter-spacing:.14em}
+a.logo{color:#fff;text-decoration:none}
+.navr{display:flex;align-items:center;gap:16px}
+.navlink{color:#D9D9D9;text-decoration:none;font-size:14px}
+.navlink:hover{color:#fff}
+.cta-top{display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;background:var(--grad);border:1px solid rgba(169,112,255,.62);color:#fff;text-decoration:none;font-weight:800;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 0 20px rgba(139,61,255,.3);white-space:nowrap}
+.navr a:focus-visible,a.logo:focus-visible{outline:2px solid var(--lilas);outline-offset:3px;border-radius:8px}
+@media (max-width:520px){.navlink{display:none}.cta-top{padding:9px 12px;font-size:11.5px}}
 .tag{display:inline-flex;align-items:center;align-self:flex-start;padding:6px 14px;border-radius:999px;border:1px solid rgba(139,61,255,.6);background:rgba(139,61,255,.14);color:var(--lilas);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
 .tag-sm{font-size:11px;padding:5px 12px}
 .hero,.card{border:1px solid rgba(255,255,255,.14);border-radius:20px;background:var(--glass);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
@@ -126,7 +133,7 @@ button{border-radius:12px;text-transform:uppercase;letter-spacing:.06em;font-wei
 </head>
 <body>
 <svg class="rings" viewBox="0 0 420 420" aria-hidden="true"><circle cx="210" cy="210" r="200" fill="none" stroke="#8B3DFF" stroke-width="2" stroke-opacity="0.45"></circle><circle cx="250" cy="190" r="160" fill="none" stroke="#8B3DFF" stroke-width="2" stroke-opacity="0.3"></circle></svg>
-<nav class="top"><div class="in"><span class="logo"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg><b>VERSA CLUB</b></span><span class="tag tag-sm">Pesquisa oficial</span></div></nav>
+<nav class="top"><div class="in"><a class="logo" href="./" aria-label="Versa Club, página inicial"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="6,12 30,12 50,68 50,92" fill="#8B3DFF"></polygon><polygon points="94,12 70,12 50,68 50,92" fill="#F4F2FA"></polygon><polygon points="70,12 94,12 90.15,19 67.5,19" fill="#C4A1FF"></polygon></svg><b>VERSA CLUB</b></a><div class="navr"><a class="navlink" href="./">Início</a><a class="navlink" href="legal.html">Políticas</a><a class="cta-top" href="pesquisa.html" aria-current="page">Participar da pesquisa</a></div></div></nav>
 <div class="wrap">
   <header class="hero">
     <div class="tag">Pesquisa de campo · LoL BR</div>
